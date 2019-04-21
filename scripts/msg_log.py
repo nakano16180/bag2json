@@ -1,6 +1,7 @@
 import rosbag
 import json
 import yaml
+from datetime import datetime
 
 bag = rosbag.Bag('../etc/bag_test.bag')
 
@@ -40,8 +41,9 @@ def bag2json(topic_list):
     #    }
         print "topic: ", topic
         #print "msg: \n", msg
-        #print "time: ", str(t)
-        #print "\n-----------------------------"
+        print "time: ", str(t)
+        print "format: ", datetime.fromtimestamp(float(str(t.to_time())))
+        print "\n-----------------------------"
 
 def select():
     l = [int(i) for i in raw_input().split()]  #error
